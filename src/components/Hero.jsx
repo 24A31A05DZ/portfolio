@@ -113,7 +113,7 @@ export default function Hero() {
             />
           </div>
           <motion.div
-            className="glass-card absolute -bottom-3 -left-6 px-4 py-2 font-mono text-xs text-primary-300"
+            className="glass-card absolute -top-4 -left-8 px-4 py-2 font-mono text-xs text-primary-300"
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           >
