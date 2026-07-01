@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Viewer</title>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #ffffff;
+        color: #0f172a;
+        overflow-x: hidden;
+      }
+      .viewer {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        background: #ffffff;
+      }
+      .frame {
+        width: min(100%, 1200px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        background: #ffffff;
+      }
+      img {
+        max-width: 100%;
+        max-height: calc(100vh - 32px);
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+      }
+      @media (max-width: 640px) {
+        .viewer { padding: 8px; }
+        .frame { padding: 6px; }
+        img { max-height: calc(100vh - 16px); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="viewer">
+      <div class="frame">
+        <img id="certificate" alt="Certificate" />
+      </div>
+    </div>
+    <script>
+      const params = new URLSearchParams(window.location.search)
+      const img = params.get('img') || '/certificates/nptel-dsa.svg'
+      const title = params.get('title') || 'Certificate'
+      document.title = title
+      const image = document.getElementById('certificate')
+      image.src = img
+      image.alt = title
+    </script>
+  </body>
+</html>

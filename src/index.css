@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg-page: #f5f7fb;
+  --bg-elevated: #ffffff;
+  --bg-card: rgba(15, 23, 42, 0.03);
+  --border-card: rgba(15, 23, 42, 0.1);
+  --text-heading: #0a0e17;
+  --text-body: #33415c;
+  --text-muted: #5c6b85;
+  --text-faint: #7c879c;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background-color: var(--bg-page);
+  transition: background-color 0.4s ease;
+}
+
+body {
+  @apply font-body antialiased;
+  color: var(--text-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-display;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2563eb, #173c94);
+  border-radius: 999px;
+  border: 2px solid var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #578ffb;
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Reusable component classes */
+@layer components {
+  .glass-card {
+    @apply relative rounded-2xl backdrop-blur-xl shadow-card transition-colors duration-300;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-card);
+  }
+
+  .text-heading {
+    color: var(--text-heading);
+  }
+
+  .text-body-c {
+    color: var(--text-body);
+  }
+
+  .text-muted-c {
+    color: var(--text-muted);
+  }
+
+  .text-faint-c {
+    color: var(--text-faint);
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-xs tracking-wider text-primary-400;
+  }
+
+  .section-heading {
+    @apply text-3xl sm:text-4xl font-semibold mt-3 mb-4;
+    color: var(--text-heading);
+  }
+
+  .section-wrapper {
+    @apply relative mx-auto max-w-6xl px-6 sm:px-8 py-24 sm:py-28;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-glow transition-transform duration-300 hover:scale-105 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold backdrop-blur transition-all duration-300 hover:border-primary-400/60 hover:scale-105 active:scale-95;
+    border: 1px solid var(--border-card);
+    background-color: var(--bg-card);
+    color: var(--text-heading);
+  }
+
+  .chip {
+    @apply rounded-full px-3 py-1 text-xs font-mono;
+    border: 1px solid var(--border-card);
+    background-color: var(--bg-card);
+    color: var(--text-muted);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
