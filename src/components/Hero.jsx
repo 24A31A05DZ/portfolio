@@ -63,9 +63,9 @@ export default function Hero() {
             Available for internships &amp; collaborations
           </p>
 
-          <h1 className="mt-4 text-4xl font-bold leading-tight text-heading sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 text-4xl font-bold leading-tight text-black sm:text-5xl lg:text-6xl">
             Hi, I&rsquo;m{' '}
-            <span className="bg-gradient-to-r from-primary-300 via-primary-500 to-primary-700 bg-clip-text text-transparent">
+            <span className="text-black">
               {personal.name}
             </span>
           </h1>
